@@ -1,0 +1,96 @@
+@mixin content($position, $maxWidthTitle, $maxWidthDescription) {
+    margin-top: 220px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    &--img {
+        transform: translateX($position);
+    }
+
+    &__content {
+        &--title {
+            max-width: $maxWidthTitle;
+        }
+
+        &--description {
+            max-width: $maxWidthDescription;
+        }
+
+        &--btn {
+            margin-top: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &--icon {
+            margin-left: 10px;
+        }
+    } 
+}
+
+.healthcare {
+    @include content(-142px, 481px, 450px);
+}
+
+.download {
+    @include content(71px, 254px, fit-content);
+}
+
+@media (max-width: 1023px)  {
+    @mixin content($direction, $top: 0) {
+        flex-direction: $direction;
+
+        &__content {
+            max-width: 100%;
+
+            &--title {
+                max-width: 100%;
+                margin-top: $top;
+            }
+
+            &--description {
+                max-width: 100%;
+            }
+
+            &--btn {
+                margin: 38px auto 0;
+            }
+        }
+
+        &--img {
+            transform: none;
+            width: 100%;
+        }
+    }
+    
+    .hero {
+        @include content(column-reverse, 30px);
+    }
+
+    .healthcare {
+        @include content(column, 30px);
+
+        &__content--title {
+            @include textTitle();
+        }
+    }
+
+    .download {
+        @include content(column-reverse, 40px);
+
+        &__content--title {
+            @include textTitle();
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .healthcare,
+    .download {
+        &__content--title {
+            font-size: 3rem;
+        }
+    }
+}

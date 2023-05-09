@@ -1,0 +1,101 @@
+.slide {
+    width: 1120px;
+    margin: 226px auto 0;
+
+    &__box {
+        background: $linearGradient-color;
+        border-radius: 24px;
+        padding: 64px 118px 89px;
+        color: $white-color;
+
+        &--body {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+        }
+
+        &--profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 390px;
+        }
+
+        &--title {
+            @include textTitle($backgroundColor: $white-color);
+            margin-bottom: 77px;
+        }
+
+        &--img {
+            --height: 141px;
+            height: var(--height);
+            width: var(--height);
+            border-radius: 50%;
+            border: 4px solid $white-color;
+            margin-right: 29px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        &--name {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        &--position {
+            font-weight: 400;
+            font-size: 1.8rem;
+            margin-top: 12px;
+        }
+
+        &--description {
+            font-weight: 400;
+            font-size: 1.9rem;
+            line-height: 30px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    &__directional {
+        margin-top: 43px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--dots {
+            margin: 0 92px;
+            display: flex;
+            gap: 18px;
+        }
+
+        &--round {
+            --width: 10px;
+            border-radius: 50%;
+            width: var(--width);
+            height: var(--width);
+            border: 1px solid $primary-color;
+        }
+    }
+}
+
+@media (max-width: 1023px)  {
+    .slide {
+        width: 100%;
+
+        &__box {
+            padding: 64px 64px 89px;
+
+            &--body {
+                display: block;
+            }
+
+            &--profile {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
